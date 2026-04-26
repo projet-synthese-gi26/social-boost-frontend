@@ -1,0 +1,172 @@
+
+{
+  "nav": {
+    "home": "Home",
+    "friends": "Friends",
+    "pages": "Pages",
+    "services": "Services",
+    "search": "Search",
+    "profile": "Profile",
+    "logout": "Log out",
+    "login": "Log in",
+    "register": "Sign up"
+  },
+  "landing": {
+    "hero": {
+      "badge": "Next-generation social network",
+      "title": "Connect, share, and boost your presence",
+      "subtitle": "Boost is the social platform that lets you share your moments, connect with loved ones, and grow your business with built-in boost tools.",
+      "cta_primary": "Get started for free",
+      "cta_secondary": "Learn more",
+      "trending": "Trending right now"
+    },
+    "features": {
+      "title": "Everything you need",
+      "subtitle": "A complete platform for your social and professional life",
+      "social": {
+        "title": "Full social network",
+        "desc": "Share posts and photos, follow friends, and interact in real time."
+      },
+      "boost": {
+        "title": "Boost your content",
+        "desc": "Promote your posts and pages to a targeted audience."
+      },
+      "pages": {
+        "title": "Create Pages",
+        "desc": "Build a professional page for your business or community."
+      },
+      "secure": {
+        "title": "Secure and private",
+        "desc": "Your data is protected. You control what you share and with whom."
+      }
+    },
+    "feed": {
+      "title": "Public feed",
+      "subtitle": "Discover what's happening on Boost — log in to join the conversation",
+      "login_prompt": "Log in to see more posts and interact",
+      "likes": "Likes",
+      "comments": "Comments",
+      "ago": "ago"
+    },
+    "stats": {
+      "users": "Active users",
+      "posts": "Posts per day",
+      "countries": "Countries"
+    },
+    "cta": {
+      "title": "Ready to join the community?",
+      "subtitle": "Thousands of people are already sharing their moments on Boost.",
+      "button": "Create my account"
+    },
+    "footer": {
+      "tagline": "The social network that boosts your life.",
+      "about": "About",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact",
+      "rights": "All rights reserved."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back!",
+      "subtitle": "Sign in to your account",
+      "email": "Email address",
+      "password": "Password",
+      "forgot": "Forgot password?",
+      "submit": "Sign in",
+      "loading": "Signing in...",
+      "no_account": "Don't have an account?",
+      "register_link": "Sign up",
+      "error": "Incorrect email or password."
+    },
+    "register": {
+      "title": "Create an account",
+      "subtitle": "Join the Boost community",
+      "firstname": "First name",
+      "lastname": "Last name",
+      "email": "Email address",
+      "password": "Password",
+      "confirm_password": "Confirm password",
+      "submit": "Sign up",
+      "loading": "Creating account...",
+      "has_account": "Already have an account?",
+      "login_link": "Sign in"
+    }
+  },
+  "home": {
+    "whats_on_mind": "What's on your mind, {{name}}?",
+    "add_photo": "Photo/Video",
+    "create_page": "Create a Page",
+    "no_posts": "No posts yet.",
+    "caught_up": "You're all caught up!",
+    "retry": "Try again"
+  },
+  "post": {
+    "like": "Like",
+    "comment": "Comment",
+    "share": "Share",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add_comment": "Write a comment...",
+    "send": "Send",
+    "ago_minutes": "{{count}} min ago",
+    "ago_hours": "{{count}}h ago",
+    "ago_days": "{{count}}d ago"
+  },
+  "friends": {
+    "title": "Friends",
+    "requests": "Friend requests",
+    "suggestions": "People you may know",
+    "add": "Add",
+    "accept": "Accept",
+    "decline": "Decline",
+    "cancel": "Cancel",
+    "mutual": "{{count}} mutual friend(s)",
+    "no_friends": "You don't have any friends yet.",
+    "no_requests": "No pending friend requests."
+  },
+  "profile": {
+    "edit": "Edit profile",
+    "posts": "Posts",
+    "friends": "Friends",
+    "pages": "Pages",
+    "add_friend": "Add friend",
+    "message": "Message",
+    "follow": "Follow",
+    "unfollow": "Unfollow",
+    "bio": "Bio",
+    "city": "City",
+    "joined": "Member since"
+  },
+  "pages": {
+    "title": "Pages",
+    "create": "Create a page",
+    "subscribe": "Subscribe",
+    "unsubscribe": "Unsubscribe",
+    "subscribers": "{{count}} subscriber(s)",
+    "no_pages": "No pages available."
+  },
+  "boost": {
+    "title": "Boost",
+    "budget": "Budget",
+    "start_date": "Start date",
+    "end_date": "End date",
+    "audience": "Target audience",
+    "status_active": "Active",
+    "status_paused": "Paused",
+    "status_completed": "Completed"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "see_more": "See more",
+    "see_less": "See less",
+    "back": "Back"
+  }
+}
