@@ -1,49 +1,51 @@
-# =====================================================
-# Dockerfile - Frontend Next.js (Boost Social Network)
-# Build multi-stage pour optimiser la taille de l'image
-# =====================================================
+# =============================================================
+# DOCKERFILE — FRONTEND NEXT.JS
+# =============================================================
 
-# Étape 1 : Installation des dépendances
-FROM node:20-alpine AS deps
-RUN apk add --no-cache libc6-compat
-WORKDIR /app
-
-COPY package.json package-lock.json* ./
-RUN npm ci
-
-# Étape 2 : Build de l'application
+# -----------------------------------------------------------
+# STAGE 1 — builder
+# -----------------------------------------------------------
 FROM node:20-alpine AS builder
+
 WORKDIR /app
 
-COPY --from=deps /app/node_modules ./node_modules
+COPY package*.json ./
+RUN npm install && npm ci --prefer-offline
+
 COPY . .
 
-# Variables disponibles au moment du build
-ARG NEXT_PUBLIC_API_URL=http://localhost:8000
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-ENV NEXT_TELEMETRY_DISABLED=1
+# --- Variables NEXT_PUBLIC_* : baked au build ---
+ARG NEXT_PUBLIC_API_URL
+
+RUN printf "NEXT_PUBLIC_API_URL=%s\n\
+  "$NEXT_PUBLIC_API_URL" \
+  > .env
 
 RUN npm run build
 
-# Étape 3 : Image de production légère
+# -----------------------------------------------------------
+# STAGE 2 — runner
+# Seul .next/standalone est copié → image finale légère
+# -----------------------------------------------------------
 FROM node:20-alpine AS runner
+
+RUN apk add --no-cache curl
+
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
-
-# Copie des fichiers nécessaires uniquement
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-
-USER nextjs
+# Standalone contient le serveur Node minimal
+COPY --from=builder /app/.next/standalone ./
+# Fichiers statiques publics (images, fonts, etc.)
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
 
 EXPOSE 3000
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
+
+#HEALTHCHECK --interval=30s --timeout=10s --retries=5 --start-period=20s \
+#  CMD curl -f http://localhost:3000/ || exit 1
 
 CMD ["node", "server.js"]
