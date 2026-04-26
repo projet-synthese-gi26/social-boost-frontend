@@ -17,7 +17,7 @@ COPY . .
 # --- Variables NEXT_PUBLIC_* : baked au build ---
 ARG NEXT_PUBLIC_API_URL
 
-RUN printf "NEXT_PUBLIC_API_URL=%s\n\
+RUN printf "NEXT_PUBLIC_API_URL=%s\n" \
   "$NEXT_PUBLIC_API_URL" \
   > .env
 
